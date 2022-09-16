@@ -72,10 +72,11 @@ def show_shopping_cart():
     melons_in_cart = [] 
     total_price = 0 
 
-    for melon_id, melon_count in cart.items:
+    for melon_id, melon_count in cart.items():
         melon = melons.get_by_id(melon_id) 
-        melon.quantity = melon_count        
-        melon_price = melon.price * melon_count 
+        melon.quantity = melon_count 
+        melon.price = melon_quantity * melon.price       
+        # melon_price = melon.price * melon_quantity
         total_price += melon_price
         melons_in_cart.append(melon)
 
@@ -102,7 +103,7 @@ def show_shopping_cart():
     
     
 
-    return render_template("cart.html")
+    # return render_template("cart.html")
 
 
 @app.route("/add_to_cart/<melon_id>")
