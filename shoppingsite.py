@@ -33,7 +33,7 @@ def index():
 
     return render_template("homepage.html")
 
-
+ 
 @app.route("/melons")
 def list_melons():
     """Return page showing all the melons ubermelon has to offer"""
@@ -50,7 +50,7 @@ def show_melon(melon_id):
     Show all info about a melon. Also, provide a button to buy that melon.
     """
 
-    melon = melons.get_by_id("meli")
+    melon = melons.get_by_id(melon_id)
     print(melon)
     return render_template("melon_details.html",
                            display_melon=melon)
